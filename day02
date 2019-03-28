@@ -1,0 +1,8 @@
+1、Numpy 位操作
+序号 操作及描述 函数方法 
+1. bitwise_and 对数组元素执行位与操作 print np.bitwise_and(13, 17)（对两个整数进行与操作） 
+2. bitwise_or 对数组元素执行位或操作 print np.bitwise_or(13, 17)（对两个整数进行或操作） 
+3. invert 计算位非 print np.invert(np.array([13], dtype = np.uint8)) 
+4. left_shift 向左移动二进制表示的位 print np.left_shift(10,2) 函数将数组元素的二进制表示中的位向左移动到指定位置，右侧附加相等数量的 0 
+5. right_shift 向右移动二进制表示的位 print np.right_shift(40,2) 函数将数组元素的二进制表示中的位向右移动到指定位置，左侧附加相等数量的 0。 
+6. np.binary_repr() 函数返回给定宽度中十进制数的二进制表示 np.binary_repr(10, width = 8)将10的二进制指定为8位 
