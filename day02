@@ -1,8 +1,67 @@
 1、Numpy 位操作
 序号 操作及描述 函数方法 
-1. bitwise_and 对数组元素执行位与操作 print np.bitwise_and(13, 17)（对两个整数进行与操作） 
-2. bitwise_or 对数组元素执行位或操作 print np.bitwise_or(13, 17)（对两个整数进行或操作） 
-3. invert 计算位非 print np.invert(np.array([13], dtype = np.uint8)) 
-4. left_shift 向左移动二进制表示的位 print np.left_shift(10,2) 函数将数组元素的二进制表示中的位向左移动到指定位置，右侧附加相等数量的 0 
-5. right_shift 向右移动二进制表示的位 print np.right_shift(40,2) 函数将数组元素的二进制表示中的位向右移动到指定位置，左侧附加相等数量的 0。 
-6. np.binary_repr() 函数返回给定宽度中十进制数的二进制表示 np.binary_repr(10, width = 8)将10的二进制指定为8位 
+1. 
+bitwise_and 对数组元素执行位与操作 print np.bitwise_and(13, 17)（对两个整数进行与操作） 
+2. 
+bitwise_or 对数组元素执行位或操作 print np.bitwise_or(13, 17)（对两个整数进行或操作） 
+3. 
+invert 计算位非 print np.invert(np.array([13], dtype = np.uint8)) 
+4. 
+left_shift 向左移动二进制表示的位 print np.left_shift(10,2) 函数将数组元素的二进制表示中的位向左移动到指定位置，右侧附加相等数量的 0 
+5. 
+right_shift 向右移动二进制表示的位 print np.right_shift(40,2) 函数将数组元素的二进制表示中的位向右移动到指定位置，左侧附加相等数量的 0。 
+6.
+np.binary_repr() 函数返回给定宽度中十进制数的二进制表示 np.binary_repr(10, width = 8)将10的二进制指定为8位 
+
+2、Numpy字符操作
+1.
+add() 返回两个str或Unicode数组的逐个字符串连接
+np.char.add(['hello'],[' xyz']) 输出：['hello xyz']
+np.char.add(['hello', 'hi'],[' abc', ' xyz'])输出：['hello abc' 'hi xyz']
+2.
+multiply() 返回按元素多重连接后的字符串
+np.char.multiply('Hello ',3)输出：Hello Hello Hello
+3.
+center() 返回给定字符串的副本，其中元素位于特定字符串的中央
+print np.char.center('hello', 20,fillchar = '*')fillchar用于在左右两侧进行填充
+输出：*******hello********
+4.
+capitalize() 返回给定字符串的副本，其中只有第一个字符串大写
+print np.char.capitalize('hello world')
+输出：Hello world
+5.
+title() 返回字符串或 Unicode 的按元素标题转换版本
+print np.char.title('hello how are you?')输出：Hello How Are You?
+6.
+lower() 返回一个数组，其元素转换为小写
+print np.char.lower(['HELLO','WORLD']) 输出：['hello' 'world']
+7.
+upper() 返回一个数组，其元素转换为大写
+print np.char.upper('hello') 输出：HELLO
+8.
+split() 返回字符串中的单词列表，并使用分隔符来分割
+若无sep参数，则默认sep为空格
+print np.char.split ('YiibaiPoint,Hyderabad,Telangana', sep = ',')
+输出：['YiibaiPoint', 'Hyderabad', 'Telangana']
+9.
+splitlines() 返回元素中的行列表，以换行符分割
+print np.char.splitlines('hello\nhow are you?') 输出：['hello', 'how are you?']
+10.
+strip() 返回数组副本，其中元素移除了开头或者结尾处的特定字符
+print np.char.strip('ashok arora','a')
+输出：shok aror
+11.
+join() 返回一个字符串，它是序列中字符串的连接
+print np.char.join(':','dmy') 输出：d:m:y
+print np.char.join([':','-'],['dmy','ymd'])输出：['d:m:y' 'y-m-d']
+12.
+replace() 返回字符串的副本，其中所有子字符串的出现位置都被新字符串取代
+print np.char.replace ('He is a good boy', 'is', 'was')
+输出：He was a good boy
+13.
+decode() 按元素调用str.decode
+a = np.char.encode('hello', 'cp500') （cp500为特定编码）
+输出：\x88\x85\x93\x93\x96
+14.
+encode() 按元素调用str.encode
+a = np.char.encode('hello', 'cp500') 输出：\x88\x85\x93\x93\x96
