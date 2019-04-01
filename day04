@@ -1,0 +1,61 @@
+一、Numpy副本和视图
+1.
+简单的赋值不会创建数组对象的副本。 相反，它使用原始数组的相同id()来访问它。 id()返回 Python 对象的通用标识符，类似于 C 中的指针。
+此外，一个数组的任何变化都反映在另一个数组上。 例如，一个数组的形状改变也会改变另一个数组的形状。
+a = np.arange(6)
+print id(a)
+b = a
+print id(b)
+输出：
+调用 id() 函数：
+139747815479536
+b 拥有相同 id()：
+139747815479536
+2.
+ndarray.view()方法，它是一个新的数组对象，并可查看原始数组的相同数据。 与前一种情况不同，新数组的维数更改不会更改原始数据的维数
+a = np.arange(6).reshape(3,2)
+print a print id(a)
+b = a.view()
+print b print id(b)
+# 修改 b 的形状，并不会修改 a
+b.shape = 2,3 print b print a
+两个数组的 id() 不同：
+a 的 id()：
+140424307227264
+b 的 id()：
+140424151696288
+3.
+ndarray.copy()函数创建一个深层副本。 它是数组及其数据的完整副本，不与原始数组共享
+a = np.array([[10,10], [2,3], [4,5]])
+print a b = a.copy() print b
+b[0,0] = 100 print b print a
+数组 b：
+[[10 10]
+[ 2 3]
+[ 4 5]]
+修改后的数组 b：
+[[100 10]
+[ 2 3]
+[ 4 5]]
+
+二、Numpy矩阵库
+1.
+matlib.empty()函数返回一个新的矩阵，而不初始化元素。 该函数接受以下参数。
+print np.matlib.empty((2,2))
+[[ 2.12199579e-314, 4.24399158e-314]
+[ 4.24399158e-314, 2.12199579e-314]]
+2、
+matlib.zero() 此函数返回以零填充的矩阵。
+print np.matlib.zeros((2,2))
+[[ 0. 0.]
+[ 0. 0.]])
+3、
+matlib.eye()  这个函数返回一个矩阵，对角线元素为 1，其他位置为零。 该函数接受以下参数。numpy.matlib.eye(n, M,k, dtype)
+(n为行数，M为列数，K为对角线索引，dtype为数据类型)只能返回斜对角线的元素
+print np.matlib.eye(n = 3, M = 4, k = 0, dtype = float)
+[[ 1. 0. 0. 0.]
+[ 0. 1. 0. 0.]
+[ 0. 0. 1. 0.]])
+4、
+numpy.matlib.identity()函数返回给定大小的单位矩阵。单位矩阵是主对角线元素都为 1 的方阵。
+print np.matlib.identity(3, dtype = float)
