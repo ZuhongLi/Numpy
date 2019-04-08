@@ -102,3 +102,22 @@ a = np.array([22,87,5,43,56,73,55,54,11,20,51,5,79,31,27])
 plt.hist(a, bins = [0,20,40,60,80,100])
 plt.title("histogram")
 plt.show()
+
+
+四、NumpyIO
+1.
+numpy.save()文件将输入数组存储在具有npy扩展名的磁盘文件中。
+a = np.array([1,2,3,4,5])
+np.save('outfile',a)
+b = np.load('outfile.npy')
+print b
+输出：
+array([1, 2, 3, 4, 5])
+2、
+以简单文本文件格式存储和获取数组数据，是通过savetxt()和loadtx()函数完成的。
+a = np.array([1,2,3,4,5])
+np.savetxt('out.txt',a)
+b = np.loadtxt('out.txt')
+print b
+输出：
+[ 1. 2. 3. 4. 5.]
