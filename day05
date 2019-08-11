@@ -7,6 +7,7 @@ plt.title("Matplotlib demo")
 plt.xlabel("x axis caption")
 plt.ylabel("y axis caption")
 plt.plot(x,y) plt.show()
+
 2、
 要显示圆来代表点，而不是上面示例中的线，请使用ob作为plot()函数中的格式字符串。
 x = np.arange(1,11)
@@ -16,6 +17,7 @@ plt.xlabel("x axis caption")
 plt.ylabel("y axis caption")
 plt.plot(x,y,"ob")
 plt.show()
+
 3、
 subplot()函数允许你在同一图中绘制不同的东西。
 # 计算正弦和余弦曲线上的点的 x 和 y 坐标
